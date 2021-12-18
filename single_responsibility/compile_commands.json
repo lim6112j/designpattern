@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/codeguru/workspace/design_pattern_cpp/single_responsibility",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/usr/local/include  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -mmacosx-version-min=11.6 -o CMakeFiles/DesignPattern.dir/single_responsibility.cpp.o -c /Users/codeguru/workspace/design_pattern_cpp/single_responsibility/single_responsibility.cpp",
+  "file": "/Users/codeguru/workspace/design_pattern_cpp/single_responsibility/single_responsibility.cpp"
+}
+]
