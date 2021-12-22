@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.10)
+find_package(Boost)
+INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
+INCLUDE_DIRECTORIES("./")
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+project(DesignPattern)
+add_executable(DesignPattern Facets.cpp)

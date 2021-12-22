@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/lim6112j/designpattern/builder_facet_build",
+  "command": "/usr/bin/c++   -I/home/lim6112j/designpattern/builder_facet/.    -std=gnu++11 -o CMakeFiles/DesignPattern.dir/Facets.cpp.o -c /home/lim6112j/designpattern/builder_facet/Facets.cpp",
+  "file": "/home/lim6112j/designpattern/builder_facet/Facets.cpp"
+}
+]

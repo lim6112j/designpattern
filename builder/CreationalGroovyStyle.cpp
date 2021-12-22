@@ -27,23 +27,23 @@ struct Tag {
 
 protected:
   Tag(const std::string &name, const std::string &text)
-      : name{name}, text{text} {}
+      : name(name), text(text) {}
   Tag(const std::string &name, const std::vector<Tag> &children)
-      : name{name}, children{children} {}
+      : name(name), children(children) {}
 };
 struct P : Tag {
-  explicit P(const std::string &text) : Tag{"p", text} {}
+  explicit P(const std::string &text) : Tag("p", text) {}
   P(std::initializer_list<Tag> children) : Tag("p", children) {}
 };
 struct IMG : Tag {
-  explicit IMG(const std::string &url) : Tag{"img", ""} {
+  explicit IMG(const std::string &url) : Tag("img", "") {
     attributes.emplace_back(make_pair("src", url));
   }
 };
 } // namespace html
 int main() {
   using namespace html;
-  std::cout << P{IMG{"http://pokemon.com/pikachu.png"}} << std::endl;
+  std::cout << P{IMG("http://pokemon.com/pikachu.png")} << std::endl;
   getchar();
   return 0;
 }
