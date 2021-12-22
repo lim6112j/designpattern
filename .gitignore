@@ -2,3 +2,5 @@
 /.DS_Store
 /open_closed_build/
 /liskov_substitution_build/
+/*/CMakeFiles/
+/*/CMakeCache.txt
