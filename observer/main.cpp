@@ -31,6 +31,9 @@ int main() {
   ConsolePersonObserver cpo;
   person.subscribe(cpo);
   person.set_age(20);
+  person.set_age(11);
+  person.unsubscribe(cpo);
+  person.set_age(69);
   getchar();
   return 0;
 }

@@ -12,7 +12,7 @@ public:
   }
   void subscribe(Observer<T> &observer) { observers.push_back(&observer); }
   void unsubscribe(Observer<T> &observer) {
-    observers.erase(remove(observers.begin(), observers.end(), observer),
+    observers.erase(remove(observers.begin(), observers.end(), &observer),
                     observers.end());
   }
 };
