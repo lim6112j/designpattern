@@ -4,20 +4,24 @@
 #include <iostream>
 #include <string>
 using namespace std;
-using namespace boost::signals2;
 class Person : public Observable<Person> { // observable
   int age;
 
 public:
+  Person(){};
   Person(int age) : age(age) {}
   int get_age() { return age; }
   void set_age(int age) {
     //     Person::age = age;
     if (this->age == age)
       return;
+    auto old_can_vote = get_can_vote();
     this->age = age;
     notify(*this, "age");
+    if (old_can_vote != get_can_vote())
+      notify(*this, "can_vote");
   }
+  bool get_can_vote() const { return age >= 16; }
 };
 // observer & observable
 struct ConsolePersonObserver : public Observer<Person> {
@@ -25,9 +29,12 @@ struct ConsolePersonObserver : public Observer<Person> {
     cout << "Person's " << field_name << " has changed to ";
     if (field_name == "age")
       cout << source.get_age();
+    if (field_name == "can_vote")
+      cout << boolalpha << source.get_can_vote();
     cout << "\n.";
   }
 };
+// using boost signal
 template <typename T> struct Observable2 {
   boost::signals2::signal<void(T &, const string &)> field_changed;
 };
@@ -35,7 +42,8 @@ class Person2 : public Observable2<Person2> {
   int age;
 
 public:
-  Person2(int age) {}
+  Person2(){};
+  Person2(int age){};
   int get_age() { return age; }
   void set_age(int age) {
     if (this->age == age)
@@ -45,7 +53,7 @@ public:
   };
 };
 int main() {
-  Person person(10);
+  Person person;
   ConsolePersonObserver cpo;
   person.subscribe(cpo);
   person.set_age(20);
@@ -54,7 +62,7 @@ int main() {
   person.set_age(69);
 
   // using boost signal
-  Person2 p2(10);
+  Person2 p2;
   auto conn =
       p2.field_changed.connect([](Person2 &p, const string &field_name) {
         cout << field_name << " has changed to " << p.get_age() << "\n";
