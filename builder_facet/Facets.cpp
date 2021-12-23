@@ -1,5 +1,13 @@
 #include "Person.h"
-int main__() {
+#include "PersonAddressBuilder.h"
+#include "PersonBuilder.h"
+#include "PersonJobBuilder.h"
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
+using namespace std;
+int main() {
   Person p = Person::create()
                  .lives()
                  .at("123 road")
