@@ -1,0 +1,3 @@
+/Users/codeguru/workspace/design_pattern_cpp/bridge/build/CMakeFiles/DesignPattern.dir
+/Users/codeguru/workspace/design_pattern_cpp/bridge/build/CMakeFiles/edit_cache.dir
+/Users/codeguru/workspace/design_pattern_cpp/bridge/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/codeguru/workspace/design_pattern_cpp/prototype/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu++11 -o CMakeFiles/prototype.dir/prototype.cpp.o -c /Users/codeguru/workspace/design_pattern_cpp/prototype/prototype.cpp",
+  "file": "/Users/codeguru/workspace/design_pattern_cpp/prototype/prototype.cpp"
+}
+]
