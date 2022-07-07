@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <memory>
 using namespace std;
 enum class OutputFormat { markdown, html };
 struct ListStrategy {
