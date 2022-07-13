@@ -5,6 +5,6 @@
 /**/CMakeFiles/
 /*/CMakeCache.txt
 /builder_build/
-*_build
+/**/*build
 .cache
 /.ccls-cache/
