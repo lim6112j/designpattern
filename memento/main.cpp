@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <memory>
 using namespace std;
 class Memento {
   int balance;
@@ -46,13 +47,13 @@ public:
   }
 };
 int main() {
-  // BankAccount ba{100};
-  // auto m1 = ba.deposit(50);
-  // auto m2 = ba.deposit(25);
-  // cout << ba << "\n";
-  // ba.restore(m1);
-  // cout << "back to m1: " << ba << "\n";
-  // ba.restore(m2);
-  // cout << "back to m2: " << ba << "\n";
+  BankAccount ba{100};
+  auto m1 = ba.deposit(50);
+  auto m2 = ba.deposit(25);
+  cout << ba << "\n";
+  ba.restore(m1);
+  cout << "back to m1: " << ba << "\n";
+  ba.restore(m2);
+  cout << "back to m2: " << ba << "\n";
   return 0;
 }

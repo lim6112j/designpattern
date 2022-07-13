@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/ubuntu/workspace/designpattern/state/boost/build",
+  "command": "/usr/bin/c++    -o CMakeFiles/Tutorial.dir/main.cpp.o -c /home/ubuntu/workspace/designpattern/state/boost/main.cpp",
+  "file": "/home/ubuntu/workspace/designpattern/state/boost/main.cpp"
+}
+]
