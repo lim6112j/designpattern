@@ -10,11 +10,11 @@ namespace mpl = boost::mpl;
 using namespace msm::front;
 vector<string> state_names{"off hook"s, "connecting"s, "connected"s, "on hold"s,
                            "destroyed"s};
-struct CallDialed{};
-struct CallConnected{};
-struct LeftMessage{};
-struct PlaceOnHold{};
-struct PhoneThrownIntoWall{};
+struct CallDialed {};
+struct CallConnected {};
+struct LeftMessage {};
+struct PlaceOnHold {};
+struct PhoneThrownIntoWall {};
 struct PhoneStateMachine : state_machine_def<PhoneStateMachine> {
   struct OffHook : state<> {};
   struct Connecting : state<> {
@@ -26,17 +26,21 @@ struct PhoneStateMachine : state_machine_def<PhoneStateMachine> {
   struct Connected : state<> {};
   struct OnHold : state<> {};
   struct PhoneDestroyed : state<> {};
-  struct trasition_table : mpl::vector<
-    Row<OffHook, CallDialed, Connecting>,
-    Row<Connecting, CallConnected, Connected>,
-    Row<Connected, PlaceOnHold, OnHold>,
-    Row<OnHold, PhoneThrownIntoWall, PhoneDestroyed>
-    > {};
+  struct trasition_table
+      : mpl::vector<Row<OffHook, CallDialed, Connecting>,
+                    Row<Connecting, CallConnected, Connected>,
+                    Row<Connected, PlaceOnHold, OnHold>,
+                    Row<OnHold, PhoneThrownIntoWall, PhoneDestroyed>> {};
+  template <class Event, class FSM>
+  void no_transition(Event &event, FSM &fsm, int state) {
+    cout << "no transition" << state_names[state] << "on event "
+         << typeid(event).name() << endl;
+  }
   typedef OffHook initial_state;
 };
 int main(int argc, char *argv[]) {
   msm::back::state_machine<PhoneStateMachine> phone;
-  auto info = [&](){
+  auto info = [&]() {
     auto i = phone.current_state()[0];
     cout << "The phone is currently " << state_names[i] << endl;
   };
@@ -45,4 +49,5 @@ int main(int argc, char *argv[]) {
   info();
   phone.process_event(CallConnected{});
   info();
-  return 0; }
+  return 0;
+}
